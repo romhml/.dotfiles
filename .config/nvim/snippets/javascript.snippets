@@ -1,0 +1,57 @@
+snippet store
+	import { defineStore } from 'pinia';
+	import { $1sApi } from '@/api/$1s';
+
+	export const use$1Store = defineStore('$1', {
+		state: () => ({
+			$3
+		}),
+
+		getters: { },
+
+		actions: {
+			$4
+		},
+	});
+
+snippet api 
+	import api from '.';
+
+	export const $1sApi = {
+		async create(form) {
+			return api.post('/$1s', form);
+		},
+
+		async update($1Id, form) {
+			return api.put(\`/$1s/\$\{$1Id\}\`, form);
+		},
+
+		async getAll() {
+			return api.get('/$1s');
+		},
+
+		async get() {
+			return api.get(\`/$1s/\$\{$1Id\}\`);
+		},
+	};
+
+snippet story
+	import $1 from '@/components/$1.vue';
+
+	export default {
+		title: '$1',
+		component: $1,
+		argTypes: {},
+	};
+
+	const Template = (args) => ({
+		components: { $1 },
+		setup() {
+			return { args };
+		},
+		template: '<$1 v-bind="args"> </$1>',
+	});
+
+	export const Default = Template.bind({});
+	Default.args = {
+	};

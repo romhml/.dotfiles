@@ -1,0 +1,183 @@
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 20px;
+  min-height: 0;
+}
+
+window > box {
+  border-radius: 5px;
+  background-color: rgba(46, 52, 64, 0.95);
+
+  color: #ffffff;
+  margin: 5px 10px 0px 10px;
+  padding: 8px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+background-color: transparent;
+}
+window#waybar.solo {
+background-color: #FFFFFF;
+} */
+
+#workspaces {
+  background-color: transparent;
+  border-color: transparent;
+  color: #ffffff;
+}
+
+#workspaces button {
+  padding: 2px 5px;
+  margin-right: 2px;
+  color: #ffffff;
+  outline-style: none;
+  border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+#workspaces button.focused {
+  border-bottom: 2px solid #d08770;
+}
+
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #64727d;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+  font-size: 18px;
+  padding: 0 10px;
+  margin: 0 4px;
+  color: #ffffff;
+}
+
+#window,
+#workspaces {
+  margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+#clock {
+}
+
+#battery {
+}
+
+#battery.charging,
+#battery.plugged {
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery.critical:not(.charging) {
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+#disk {
+}
+
+#backlight {
+}
+
+#network {
+}
+
+#network.disconnected {
+}
+
+#pulseaudio.muted {
+}
+
+#custom-media {
+}
+
+#custom-media.custom-spotify {
+}
+
+#custom-media.custom-vlc {
+}
+
+#temperature {
+}
+
+#temperature.critical {
+}
+
+#tray {
+}
+
+#idle_inhibitor {
+}
+
+#idle_inhibitor.activated {
+}
+
+#mpd {
+}
+
+#mpd.disconnected {
+}
+
+#mpd.stopped {
+}
+
+#mpd.paused {
+}
+
+#language {
+}

@@ -1,0 +1,56 @@
+add_newline = true
+
+[character]
+success_symbol = "[](bold yellow)"
+
+[directory]
+style = "bold blue"
+
+[git_branch]
+style = "bold yellow"
+
+
+
+
+[python]
+symbol = " "
+version_format = "v${major}.${minor}"
+
+[java]
+version_format = "v${major}.${minor}"
+symbol = " "
+
+[scala]
+version_format = "v${major}.${minor}"
+symbol = " "
+
+[terraform]
+symbol = " "
+style = "bold purple"
+
+[golang]
+version_format = "v${major}.${minor}"
+symbol = " "
+
+[rust]
+version_format = "v${major}.${minor}"
+symbol = " "
+
+# Disabled
+[gcloud]
+disabled = true
+
+[aws]
+disabled = true
+
+[helm]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[package]
+disabled = true

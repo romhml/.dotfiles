@@ -1,0 +1,109 @@
+{
+  "bar_id": "bar-0",
+  "ipc": true,
+  "layer": "top",
+    "modules-left": [ "wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [ "disk", "network", "battery", "backlight", "pulseaudio", "clock" ],
+    "custom/logo": {
+      "format": "  "
+    },
+
+    "hyprland/window": {
+      "format": "{}",
+      "separate-outputs": true
+    },
+
+    "sway/window": {
+      "max-length": 50
+    },
+
+    "wlr/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "default": ""
+      }
+    },
+
+    "bluetooth": {
+      "format": "  ",
+      "format-disabled": "  ",
+      "tooltip": false
+    },
+
+    "pulseaudio": {
+      "format": "{volume} {icon}",
+      "format-bluetooth": "{icon}",
+      "format-muted": "",
+      "format-source": "  ",
+      "format-source-muted": "  ",
+      "format-icons": {
+        "headphone": "",
+        "default": ["", "", "墳", ""]
+      },
+      "scroll-step": 1,
+      "tooltip": false,
+      "on-click": "pavucontrol",
+      "on-click-right": "amixer -q -D pulse sset Master toggle"
+    },
+
+    "backlight": {
+      "device": "acpi_video1",
+      "format": "{percent}% {icon}",
+      "format-icons": ["", ""]
+    },
+
+    "disk": {
+      "interval": 30,
+      "format": "{percentage_used}% ",
+      "path": "/"
+    },
+
+    "cpu": {
+      "interval": 10,
+      "format": "{} ",
+      "max-length": 10
+    },
+
+    "temperature": {
+      "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+      "critical-threshold": 80,
+      "format": "{temperatureC}° {icon}",
+      "format-icons": ["ﰕ", ""]
+    },
+
+    "memory": {
+      "format": "{} "
+    },
+
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "{essid} ",
+      "format-ethernet": "",
+      "format-linked": "",
+      "format-disconnected": "",
+      "tooltip": false
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "design-capacity": true,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock": {
+      "format": "{:%a %d %b %H:%M}"
+    }
+}
