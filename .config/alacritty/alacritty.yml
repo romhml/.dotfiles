@@ -22,7 +22,7 @@ window:
     x: 10
     y: 10
 
-  decorations: none
+  decorations: buttonless
 
 font:
   normal:

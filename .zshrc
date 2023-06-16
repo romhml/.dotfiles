@@ -2,7 +2,9 @@
 # zmodload zsh/zprof
 export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(git zsh-completions zsh-autosuggestions zsh-vi-mode fzf-zsh-plugin)
+plugins=(git zsh-completions zsh-autosuggestions fzf-zsh-plugin)
+
+set -o vi
 
 # Fix FZF conflicts with zsh-vi-mode
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
@@ -37,9 +39,6 @@ source ~/.config/aliases/kubectl.sh
 
 export BAT_THEME="Nord"
 
-# Rust
-source $HOME/.cargo/env
-
 # Golang
 export GO111MODULE="on"
 export GOPATH="$HOME/go"
@@ -63,7 +62,7 @@ eval "$(starship init zsh)"
 eval "$(pyenv init -)"
 
 if [ $(uname)="Darwin" ]; then
-  export PATH="/usr/local/opt/node@18/bin:$PATH"
+  # export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
 fi
 
 #
@@ -76,7 +75,7 @@ export PATH="$PATH:/opt/rocm/bin/"
 export FORCE_COLOR=1 # Force colors on turbo log output
 
 # pnpm
-export PNPM_HOME="/home/rohm/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
