@@ -6,9 +6,6 @@ plugins=(git zsh-completions zsh-autosuggestions fzf-zsh-plugin)
 
 set -o vi
 
-# Fix FZF conflicts with zsh-vi-mode
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-
 # Fix FZF colors
 export FZF_DEFAULT_OPTS='--color 16'
 export FZF_CTRL_R_OPTS='--height 7'

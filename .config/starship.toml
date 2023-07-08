@@ -9,9 +9,6 @@ style = "bold blue"
 [git_branch]
 style = "bold yellow"
 
-
-
-
 [python]
 symbol = " "
 version_format = "v${major}.${minor}"
