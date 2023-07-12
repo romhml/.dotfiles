@@ -1,7 +1,10 @@
 local set = vim.opt
 
 require("rohm.mappings")
-require("rohm.packer")
+require("rohm.lazy")
+
+-- Gotta go fast
+vim.loader.enable()
 
 -- Vertical split right
 set.splitright = true

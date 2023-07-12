@@ -44,9 +44,10 @@ require("gitsigns").setup()
 
 require("nvim-tree").setup({
 	select_prompts = false,
-  git = {
-    ignore = false
-  },
+	git = {
+		enable = true,
+		timeout = 400,
+	},
 	renderer = {
 		icons = {
 			webdev_colors = true,

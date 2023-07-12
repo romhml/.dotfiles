@@ -4,7 +4,7 @@
 cmd - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
 
 # Open browser
-cmd - w : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+cmd - w : open -a "Arc"
 
 
 cmd + shift - s : yabai -m window --toggle zoom-fullscreen

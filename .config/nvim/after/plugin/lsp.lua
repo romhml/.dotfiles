@@ -108,3 +108,16 @@ vim.keymap.set("n", "<leader>gv", ":vsplit | lua vim.lsp.buf.definition()<CR>")
 vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references)
+
+-- CVA
+lsp.configure("tailwindcss", {
+	settings = {
+		tailwindCSS = {
+			experimental = {
+				classRegex = {
+					{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+				},
+			},
+		},
+	},
+})
