@@ -34,35 +34,3 @@ autocmd("TextYankPost", {
 		})
 	end,
 })
-
-require("lualine").setup({ options = { section_separators = "", component_separators = "" } })
-
-require("gitsigns").setup()
-
-require("nvim-tree").setup({
-	select_prompts = false,
-	git = {
-		enable = true,
-		timeout = 400,
-	},
-	renderer = {
-		icons = {
-			webdev_colors = true,
-			git_placement = "after",
-			glyphs = {
-				git = {
-					unstaged = "✗",
-					staged = "✓",
-					unmerged = "",
-					renamed = "➜",
-					untracked = "",
-					deleted = "",
-					ignored = "◌",
-				},
-			},
-		},
-	},
-	actions = { open_file = { window_picker = { enable = false } } },
-})
-
-vim.keymap.set("n", "<leader>b", "<cmd> NvimTreeFindFileToggle<CR>")

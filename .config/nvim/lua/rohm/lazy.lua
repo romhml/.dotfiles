@@ -12,11 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	-- Treesiter
+	"nvim-treesitter/nvim-treesitter",
 	"nvim-treesitter/playground",
 
 	-- Gotta go fast
 	"nathom/filetype.nvim",
+	"dstein64/vim-startuptime",
 
 	-- Telescope
 	{
@@ -26,22 +28,9 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
-	"nvim-telescope/telescope-file-browser.nvim",
-
-	-- Tree
-	{
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		tag = "nightly",
-	},
 
 	-- Tmux
 	{ "christoomey/vim-tmux-navigator" },
-
-	-- Vim vue
-	{ "posva/vim-vue" },
 
 	-- LSP
 	{
@@ -70,7 +59,7 @@ require("lazy").setup({
 	},
 
 	-- Terraform
-	"hashivim/vim-terraform",
+	{ "hashivim/vim-terraform", ft = "terraform" },
 
 	-- Git
 	{
@@ -79,21 +68,62 @@ require("lazy").setup({
 	},
 
 	-- Better Undos
-	"mbbill/undotree",
+	{
+		"mbbill/undotree",
+		config = function()
+			vim.keymap.set("n", "<leader>u", "<cmd> UndotreeToggle <CR>")
+		end,
+	},
 
 	-- Utils
-	"vim-test/vim-test",
-	"kassio/neoterm",
-	"preservim/nerdcommenter",
+	{ "vim-test/vim-test", keys = { "<leader>tn", "<leader>ts", "<leader>tf" } },
+	{ "kassio/neoterm" },
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
-	"tpope/vim-projectionist",
 	"lukas-reineke/indent-blankline.nvim",
+	"echasnovski/mini.comment",
 
 	-- Copilot
-	"github/copilot.vim",
+	{
+		"github/copilot.vim",
+		keys = { "i" },
+		config = function()
+			vim.cmd([[
+        let g:copilot_filetypes = {
+          \ 'TelescopePrompt': v:false,
+          \ }
+      ]])
+		end,
+	},
 
 	-- Theme
 	"shaunsingh/nord.nvim",
 	"nvim-lualine/lualine.nvim",
+	"rrethy/vim-illuminate",
+	{ "echasnovski/mini.indentscope", opts = {} },
+
+	-- Tree
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			filesystem = {
+				list = {
+					follow_current_file = {
+						enable = true,
+					},
+				},
+			},
+		},
+	},
+
+	-- Trying out
+
+	{ "echasnovski/mini.surround", opts = {} },
+	{ "echasnovski/mini.ai", opts = {} },
 })
