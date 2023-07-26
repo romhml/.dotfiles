@@ -6,6 +6,8 @@ require("rohm.lazy")
 -- Gotta go fast
 vim.loader.enable()
 
+set.wrap = false
+
 -- Vertical split right
 set.splitright = true
 set.splitbelow = true

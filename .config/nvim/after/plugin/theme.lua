@@ -9,10 +9,7 @@ require("nord").set()
 vim.cmd([[
 highlight @tag gui=bold guifg=#81A1C1
 highlight @tag.delimiter gui=bold guifg=#616E88
-highlight @parameter gui=bold guifg=#D8DEE9
-highlight @attribute gui=bold guifg=#81A1C1
 highlight CopilotSuggestion guifg=#616E88 gui=italic,bold
-
 hi! link Annotation Decorator
 
 set guifont=JetBrainsMono\ Nerd\ Font:h18

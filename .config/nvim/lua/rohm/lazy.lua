@@ -22,9 +22,11 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
+	"nvim-telescope/telescope-file-browser.nvim",
 
 	-- Tree
 	{
@@ -94,5 +96,4 @@ require("lazy").setup({
 	-- Theme
 	"shaunsingh/nord.nvim",
 	"nvim-lualine/lualine.nvim",
-	"nvim-tree/nvim-web-devicons",
 })

@@ -16,11 +16,6 @@ export UNAME=$(uname)
 export LC_ALL=en_US.UTF-8
 export EDITOR=nvim
 
-if [ $UNAME != "Darwin" ]; then
-  export BROWSER=firefox
-  alias open=xdg-open
-fi;
-
 export ZVM_CURSOR_STYLE_ENABLED=false
 
 # Vim navigation in zsh menuselect
@@ -59,8 +54,21 @@ eval "$(starship init zsh)"
 eval "$(pyenv init -)"
 
 if [ $(uname)="Darwin" ]; then
-  # export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+  export PATH="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH"
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
+
+if [ $UNAME != "Darwin" ]; then
+  export BROWSER=firefox
+  alias open=xdg-open
+fi;
 
 #
 # Path setup
