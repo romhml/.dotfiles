@@ -58,13 +58,14 @@ require("lazy").setup({
 		},
 	},
 
-	-- Terraform
-	{ "hashivim/vim-terraform", ft = "terraform" },
-
 	-- Git
+	"tpope/vim-fugitive",
+	{ "lewis6991/gitsigns.nvim", opts = {} },
 	{
-		"tpope/vim-fugitive",
-		"lewis6991/gitsigns.nvim",
+		"f-person/git-blame.nvim",
+		config = function()
+			vim.g.gitblame_delay = 1000
+		end,
 	},
 
 	-- Better Undos
@@ -77,11 +78,11 @@ require("lazy").setup({
 
 	-- Utils
 	{ "vim-test/vim-test", keys = { "<leader>tn", "<leader>ts", "<leader>tf" } },
-	{ "kassio/neoterm" },
+	"kassio/neoterm",
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	"lukas-reineke/indent-blankline.nvim",
-	"echasnovski/mini.comment",
+	{ "echasnovski/mini.comment", opts = {} },
 
 	-- Copilot
 	{
@@ -111,19 +112,23 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		opts = {
-			filesystem = {
-				list = {
+		config = function()
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				window = {
+					width = 30,
+				},
+				filesystem = {
 					follow_current_file = {
-						enable = true,
+						enabled = true,
 					},
 				},
-			},
-		},
+			})
+			vim.keymap.set("n", "<leader>b", "<cmd> Neotree toggle <CR>")
+		end,
 	},
 
 	-- Trying out
-
 	{ "echasnovski/mini.surround", opts = {} },
 	{ "echasnovski/mini.ai", opts = {} },
 })

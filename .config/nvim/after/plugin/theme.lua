@@ -3,7 +3,6 @@ vim.g.nord_borders = true
 vim.g.nord_italic = false
 vim.g.nord_bold = false
 vim.opt.cursorline = true
-
 require("nord").set()
 
 vim.cmd([[
@@ -13,8 +12,6 @@ highlight CopilotSuggestion guifg=#616E88 gui=italic,bold
 hi! link Annotation Decorator
 
 set guifont=JetBrainsMono\ Nerd\ Font:h18
-
-set listchars=tab:→\ ,trail:·,precedes:←,extends:→,nbsp:·,space:· list backspace=indent,eol,start
 set fillchars+=vert:│
 ]])
 
