@@ -77,8 +77,6 @@ require("lazy").setup({
 	},
 
 	-- Utils
-	{ "vim-test/vim-test", keys = { "<leader>tn", "<leader>ts", "<leader>tf" } },
-	"kassio/neoterm",
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	"lukas-reineke/indent-blankline.nvim",
@@ -103,7 +101,7 @@ require("lazy").setup({
 	"rrethy/vim-illuminate",
 	{ "echasnovski/mini.indentscope", opts = {} },
 
-	-- Tree
+	-- FS
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -112,23 +110,34 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		config = function()
-			require("neo-tree").setup({
-				close_if_last_window = true,
-				window = {
-					width = 30,
+		opts = {
+			close_if_last_window = true,
+			window = {
+				width = 30,
+			},
+			filesystem = {
+				follow_current_file = {
+					enabled = true,
 				},
-				filesystem = {
-					follow_current_file = {
-						enabled = true,
-					},
-				},
-			})
-			vim.keymap.set("n", "<leader>b", "<cmd> Neotree toggle <CR>")
-		end,
+			},
+		},
+		keys = {
+			{ "<leader>b", "<cmd> Neotree toggle <CR>" },
+		},
 	},
-
-	-- Trying out
-	{ "echasnovski/mini.surround", opts = {} },
-	{ "echasnovski/mini.ai", opts = {} },
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			skip_confirm_for_simple_edits = true,
+			view_options = {
+				-- Show files and directories that start with "."
+				show_hidden = true,
+			},
+		},
+		keys = {
+			{ "<leader>B", "<CMD> Oil --float <CR>" },
+			{ "-", "<CMD>Oil<CR>" },
+		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 })
