@@ -3,19 +3,26 @@ vim.g.nord_borders = true
 vim.g.nord_italic = false
 vim.g.nord_bold = false
 vim.opt.cursorline = true
+
 require("nord").set()
 
 vim.cmd([[
 highlight @tag gui=bold guifg=#81A1C1
 highlight @tag.delimiter gui=bold guifg=#616E88
 highlight CopilotSuggestion guifg=#616E88 gui=italic,bold
-hi! link Annotation Decorator
 
-set guifont=JetBrainsMono\ Nerd\ Font:h18
+set guifont=JetBrainsMono\ Nerd\ Font:h16
 set fillchars+=vert:│
 ]])
 
-vim.opt.showmode = false
+require("lualine").setup({
+	options = {
+		theme = "nord",
+		component_separators = "",
+		section_separators = { left = "", right = "" },
+	},
+})
+
 local augroup = vim.api.nvim_create_augroup
 
 local yank_group = augroup("HighlightYank", {})

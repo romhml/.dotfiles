@@ -25,36 +25,34 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
 		},
 	},
 
 	-- Tmux
-	{ "christoomey/vim-tmux-navigator" },
+	"christoomey/vim-tmux-navigator",
 
 	-- LSP
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		dependencies = {
 			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
+			"neovim/nvim-lspconfig",
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
 
 			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
 
 			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
+			"L3MON4D3/LuaSnip",
 
 			-- Formatting and Diagnostics
-			{ "jose-elias-alvarez/null-ls.nvim" },
+			"jose-elias-alvarez/null-ls.nvim",
 		},
 	},
 
@@ -97,34 +95,12 @@ require("lazy").setup({
 
 	-- Theme
 	"shaunsingh/nord.nvim",
+	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
 	"rrethy/vim-illuminate",
 	{ "echasnovski/mini.indentscope", opts = {} },
 
 	-- FS
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		opts = {
-			close_if_last_window = true,
-			window = {
-				width = 30,
-			},
-			filesystem = {
-				follow_current_file = {
-					enabled = true,
-				},
-			},
-		},
-		keys = {
-			{ "<leader>b", "<cmd> Neotree toggle <CR>" },
-		},
-	},
 	{
 		"stevearc/oil.nvim",
 		opts = {
@@ -135,9 +111,8 @@ require("lazy").setup({
 			},
 		},
 		keys = {
-			{ "<leader>B", "<CMD> Oil --float <CR>" },
+			{ "<leader>b", "<CMD> Oil --float <CR>" },
 			{ "-", "<CMD>Oil<CR>" },
 		},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 })

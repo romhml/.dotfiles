@@ -10,7 +10,7 @@ style = "bold blue"
 style = "bold yellow"
 
 [python]
-symbol = " "
+symbol = " "
 version_format = "v${major}.${minor}"
 
 [java]

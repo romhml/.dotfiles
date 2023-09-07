@@ -27,7 +27,7 @@ window:
 font:
   normal:
     family: JetBrainsMono Nerd Font
-    style: Bold
+    style: Medium
   size: 16
 
 cursor:

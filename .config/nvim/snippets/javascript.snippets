@@ -14,27 +14,6 @@ snippet store
 		},
 	});
 
-snippet api 
-	import api from '.';
-
-	export const $1sApi = {
-		async create(form) {
-			return api.post('/$1s', form);
-		},
-
-		async update($1Id, form) {
-			return api.put(\`/$1s/\$\{$1Id\}\`, form);
-		},
-
-		async getAll() {
-			return api.get('/$1s');
-		},
-
-		async get() {
-			return api.get(\`/$1s/\$\{$1Id\}\`);
-		},
-	};
-
 snippet story
 	import $1 from '@/components/$1.vue';
 

@@ -1,46 +1,48 @@
-local set = vim.opt
-
 require("rohm.mappings")
 require("rohm.lazy")
 
 -- Gotta go fast
 vim.loader.enable()
 
-set.wrap = false
+vim.o.wrap = false
+vim.opt.showmode = false
 
 -- Vertical split right
-set.splitright = true
-set.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Persistent undo's
-set.undofile = true
-set.undodir = vim.fn.expand("~/.vim/undodir")
+vim.o.undofile = true
+vim.o.undodir = vim.fn.expand("~/.vim/undodir")
 
 -- Mouse
-set.mouse = "a"
-set.mousemodel = "extend"
+vim.o.mouse = "a"
+vim.o.mousemodel = "extend"
 
 -- Line numbers
-set.nu = true
-set.relativenumber = true
-set.signcolumn = "yes"
-set.numberwidth = 3
-set.scrolloff = 8
+vim.o.nu = true
+vim.o.relativenumber = true
+vim.o.signcolumn = "yes"
+vim.o.numberwidth = 3
+vim.o.scrolloff = 8
 
 -- Indentation
-set.tabstop = 2
-set.shiftwidth = 2
-set.autoindent = true
-set.smartindent = true
-set.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.expandtab = true
 
 -- Folds
-set.foldmethod = "indent"
-set.foldenable = false
+vim.o.foldmethod = "indent"
+vim.o.foldenable = false
 
 -- Hide buffers when abandoned (+confirm on quit)
-set.hidden = true
-set.confirm = true
+vim.o.hidden = true
+vim.o.confirm = true
+
+-- Shortmess
+vim.o.shortmess = vim.o.shortmess .. "A"
 
 -- Vertical help and git buffers
 vim.api.nvim_create_autocmd("FileType", { pattern = { "git", "help" }, command = "wincmd L" })

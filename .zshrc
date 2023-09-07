@@ -42,6 +42,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # gcloud
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/.config/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.config/google-cloud-sdk/path.zsh.inc"; fi
@@ -70,7 +73,6 @@ if [ $UNAME != "Darwin" ]; then
   alias open=xdg-open
 fi;
 
-#
 # Path setup
 export PATH="$PATH:${HOME}/.local/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
