@@ -3,8 +3,7 @@
   "ipc": true,
   "layer": "top",
     "modules-left": [ "wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": [ "disk", "network", "battery", "backlight", "pulseaudio", "clock" ],
+    "modules-right": [ "disk", "network", "battery", "pulseaudio", "clock" ],
     "custom/logo": {
       "format": "  "
     },
