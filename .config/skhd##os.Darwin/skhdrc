@@ -1,7 +1,7 @@
 # Applications configuration
 
 # Open terminal
-cmd - t : /Applications/Alacritty.app/Contents/MacOS/alacritty
+cmd - t : kitty $HOME
 
 # Open browser
 cmd - w : open -a "Arc"
