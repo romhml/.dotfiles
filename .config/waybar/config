@@ -2,7 +2,7 @@
   "bar_id": "bar-0",
   "ipc": true,
   "layer": "top",
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-right": [ "disk", "network", "battery", "pulseaudio", "clock" ],
 
     "hyprland/window": {
@@ -10,11 +10,7 @@
       "separate-outputs": true
     },
 
-    "sway/window": {
-      "max-length": 50
-    },
-
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
       "disable-scroll": true,
       "all-outputs": true,
       "format": "{icon}",
