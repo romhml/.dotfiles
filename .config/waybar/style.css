@@ -6,12 +6,8 @@
 }
 
 window > box {
-  border-radius: 5px;
-  background-color: rgba(46, 52, 64, 0.95);
-
   color: #ffffff;
-  margin: 5px 10px 0px 10px;
-  padding: 8px;
+  margin: 10px 10px 0px 10px;
 }
 
 window#waybar {
@@ -31,9 +27,6 @@ background-color: #FFFFFF;
 } */
 
 #workspaces {
-  background-color: transparent;
-  border-color: transparent;
-  color: #ffffff;
 }
 
 #workspaces button {
@@ -88,6 +81,23 @@ background-color: #FFFFFF;
   margin: 0 4px;
 }
 
+.modules-right {
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px 10px;
+  background-color: rgba(46, 52, 64, 0.95);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.modules-left {
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 5px 10px;
+  background-color: rgba(46, 52, 64, 0.95);
+  border-color: transparent;
+  color: #ffffff;
+}
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
