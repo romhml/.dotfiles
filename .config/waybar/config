@@ -2,11 +2,8 @@
   "bar_id": "bar-0",
   "ipc": true,
   "layer": "top",
-    "modules-left": [ "wlr/workspaces"],
+    "modules-left": ["wlr/workspaces"],
     "modules-right": [ "disk", "network", "battery", "pulseaudio", "clock" ],
-    "custom/logo": {
-      "format": "  "
-    },
 
     "hyprland/window": {
       "format": "{}",
@@ -24,10 +21,16 @@
       "format-icons": {
         "1": "",
         "2": "",
-        "3": "",
+        "3": "",
         "4": "",
         "default": ""
-      }
+      },
+      "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+      },
     },
 
     "bluetooth": {
