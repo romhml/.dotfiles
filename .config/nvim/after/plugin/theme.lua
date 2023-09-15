@@ -1,7 +1,4 @@
 vim.g.nord_disable_background = true
-vim.g.nord_borders = true
-vim.g.nord_italic = false
-vim.g.nord_bold = false
 vim.opt.cursorline = true
 
 require("nord").set()
