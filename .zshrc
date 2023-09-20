@@ -81,6 +81,9 @@ export PATH="$PATH:/opt/rocm/bin/"
 
 export FORCE_COLOR=1 # Force colors on turbo log output
 
+# bun
+export PATH="$PATH:$HOME/.bun/bin"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in

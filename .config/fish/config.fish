@@ -34,18 +34,15 @@ eval "$(pyenv init --path)"
 # Rust
 set PATH $HOME/.cargo/bin $PATH
 
+# Kube
 kubectl completion fish | source
 
-eval "$(pyenv init -)"
-
-if [ $(uname)="Darwin" ]
+if [ $UNAME="Darwin" ]
   set PATH "/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin" $PATH
-end
-
-if [ $UNAME != "Darwin" ] 
+else
   set BROWSER firefox
   alias open=xdg-open
-end;
+end
 
 # Path setup
 set PATH $HOME/.local/bin $PATH
