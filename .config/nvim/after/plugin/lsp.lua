@@ -57,7 +57,7 @@ null_ls.setup({
 	on_attach = null_opts.on_attach,
 	sources = {
 		null_ls.builtins.diagnostics.eslint,
-		prettier,
+		-- prettier,
 
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.isort.with({

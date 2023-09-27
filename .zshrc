@@ -69,7 +69,7 @@ if [ $(uname)="Darwin" ]; then
 fi
 
 if [ $UNAME != "Darwin" ]; then
-  export BROWSER=firefox
+  export BROWSER=chromium
   alias open=xdg-open
 fi;
 
@@ -82,7 +82,8 @@ export PATH="$PATH:/opt/rocm/bin/"
 export FORCE_COLOR=1 # Force colors on turbo log output
 
 # bun
-export PATH="$PATH:$HOME/.bun/bin"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -90,3 +91,6 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# bun completions
+[ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
