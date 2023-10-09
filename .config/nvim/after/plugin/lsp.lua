@@ -3,6 +3,7 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	"tsserver",
+	"volar",
 	"pyright",
 	"rust_analyzer",
 })
@@ -20,56 +21,46 @@ lsp.configure("pyright", {
 	capabilities = pyright_capabilities,
 })
 
--- Format on save
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require("null-ls")
+-- lsp.configure("volar", {
+-- 	default_config = {
+-- 		filetypes = { "javascript", "typescript", "vue" }, -- Take over mode
+-- 	},
+-- })
 
--- Setup null-ls
-local null_opts = lsp.build_options("null-ls", {
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({
-						bufnr = bufnr,
-						filter = function(client)
-							return client.name == "null-ls"
-						end,
-						timeout_ms = 5000,
-					})
-				end,
-			})
+require("conform").setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "isort", "black" },
+		javascript = { { "prettierd", "prettier" } },
+	},
+	format_on_save = function(bufnr)
+		-- Disable with a global or buffer-local variable
+		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+			return
 		end
+		return { timeout_ms = 500, lsp_fallback = true }
 	end,
 })
 
--- Prettier with local node_modules
-local command_resolver = require("null-ls.helpers.command_resolver")
-local prettier = null_ls.builtins.formatting.prettier.with({
-	dynamic_command = command_resolver.from_node_modules(),
+vim.api.nvim_create_user_command("FormatDisable", function(args)
+	if args.bang then
+		-- FormatDisable! will disable formatting just for this buffer
+		vim.b.disable_autoformat = true
+	else
+		vim.g.disable_autoformat = true
+	end
+end, {
+	desc = "Disable autoformat-on-save",
+	bang = true,
 })
 
--- Setup null-ls
-null_ls.setup({
-	on_attach = null_opts.on_attach,
-	sources = {
-		null_ls.builtins.diagnostics.eslint,
-		-- prettier,
-
-		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.isort.with({
-			extra_args = { "--format", "black" },
-		}),
-
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.completion.spell,
-	},
+vim.api.nvim_create_user_command("FormatEnable", function()
+	vim.b.disable_autoformat = false
+	vim.g.disable_autoformat = false
+end, {
+	desc = "Re-enable autoformat-on-save",
 })
 
--- Setup nvim-cmp.
 local cmp = require("cmp")
 
 vim.opt.pumheight = 7

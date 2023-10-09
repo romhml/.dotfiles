@@ -94,3 +94,4 @@ esac
 
 # bun completions
 [ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
+[ -s "/Users/rohm/.bun/_bun" ] && source "/Users/rohm/.bun/_bun"

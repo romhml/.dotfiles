@@ -51,8 +51,8 @@ require("lazy").setup({
 			-- Snippets
 			"L3MON4D3/LuaSnip",
 
-			-- Formatting and Diagnostics
-			"jose-elias-alvarez/null-ls.nvim",
+			-- Formatting
+			{ "stevearc/conform.nvim" },
 		},
 	},
 
@@ -97,6 +97,7 @@ require("lazy").setup({
 	"shaunsingh/nord.nvim",
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
+
 	"rrethy/vim-illuminate",
 	{ "echasnovski/mini.indentscope", opts = {} },
 
