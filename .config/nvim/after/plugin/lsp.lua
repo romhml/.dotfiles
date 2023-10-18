@@ -101,6 +101,13 @@ vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references)
 
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+
+
 -- CVA
 lsp.configure("tailwindcss", {
 	settings = {

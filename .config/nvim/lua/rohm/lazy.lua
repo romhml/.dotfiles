@@ -57,8 +57,13 @@ require("lazy").setup({
 	},
 
 	-- Git
-	"tpope/vim-fugitive",
 	{ "lewis6991/gitsigns.nvim", opts = {} },
+	{
+		"kdheepak/lazygit.nvim",
+		keys = {
+			{ "<leader>gG", "<CMD> LazyGit <CR>" },
+		},
+	},
 	{
 		"f-person/git-blame.nvim",
 		config = function()
@@ -69,9 +74,9 @@ require("lazy").setup({
 	-- Better Undos
 	{
 		"mbbill/undotree",
-		config = function()
-			vim.keymap.set("n", "<leader>u", "<cmd> UndotreeToggle <CR>")
-		end,
+		keys = {
+			{ "<leader>u", "<CMD> UndotreeToggle <CR>" },
+		},
 	},
 
 	-- Utils
