@@ -99,6 +99,8 @@ require("lazy").setup({
 	},
 
 	-- Theme
+
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	"shaunsingh/nord.nvim",
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
