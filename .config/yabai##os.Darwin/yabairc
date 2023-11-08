@@ -46,9 +46,10 @@ yabai -m config window_gap                   8
 # Window management
 yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'
 
-yabai -m rule --add app="Finder" manage=off
-yabai -m rule --add app="Raspberry Pi Imager" manage=off
+yabai -m rule --add app="Finder" sticky=on layer=above manage=off
+yabai -m rule --add app="Preview" sticky=on layer=above manage=off
+yabai -m rule --add app="Raspberry Pi Imager" sticky=on layer=above manage=off
 yabai -m rule --add app="System Settings" manage=off
-yabai -m rule --add app="FaceTime" manage=off
+yabai -m rule --add app="FaceTime" sticky=on layer=above manage=off
 
 echo "yabai configuration loaded.."

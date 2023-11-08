@@ -31,8 +31,11 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { "prettier" },
-		vue = { "prettier" },
+		javascript = { "prettierd" },
+		vue = { "prettierd" },
+		typescript = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		rust = {},
 	},
 	format_on_save = function(bufnr)
 		-- Disable with a global or buffer-local variable
@@ -106,7 +109,6 @@ vim.keymap.set("n", "gI", vim.lsp.buf.implementation)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
-
 
 -- CVA
 lsp.configure("tailwindcss", {
