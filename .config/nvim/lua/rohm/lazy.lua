@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -123,4 +124,6 @@ require("lazy").setup({
 			{ "-", "<CMD>Oil<CR>" },
 		},
 	},
+}, {
+	ui = { border = "rounded" },
 })

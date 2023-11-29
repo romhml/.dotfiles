@@ -8,25 +8,6 @@ lsp.ensure_installed({
 	"rust_analyzer",
 })
 
--- Activate poetry virtualenv automatically
-local pyright_capabilities = vim.lsp.protocol.make_client_capabilities()
-pyright_capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
-lsp.configure("pyright", {
-	on_new_config = function(config, root_dir)
-		local env = vim.trim(vim.fn.system('cd "' .. root_dir .. '"; poetry env info -p 2>/dev/null'))
-		if string.len(env) > 0 then
-			config.settings.python.pythonPath = env .. "/bin/python"
-		end
-	end,
-	capabilities = pyright_capabilities,
-})
-
--- lsp.configure("volar", {
--- 	default_config = {
--- 		filetypes = { "javascript", "typescript", "vue" }, -- Take over mode
--- 	},
--- })
-
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -70,6 +51,7 @@ local cmp = require("cmp")
 vim.opt.pumheight = 7
 
 local cmp_mappings = lsp.defaults.cmp_mappings()
+
 cmp_mappings["<Tab>"] = nil
 cmp_mappings["<S-Tab>"] = nil
 cmp_mappings["<CR>"] = nil
@@ -110,15 +92,9 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 
--- CVA
-lsp.configure("tailwindcss", {
-	settings = {
-		tailwindCSS = {
-			experimental = {
-				classRegex = {
-					{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-				},
-			},
-		},
+-- Mason
+require("mason").setup({
+	ui = {
+		border = "rounded",
 	},
 })

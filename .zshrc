@@ -29,8 +29,6 @@ export GPG_TTY=$(tty)
 source ~/.config/aliases/common.sh
 source ~/.config/aliases/kubectl.sh
 
-export BAT_THEME="Nord"
-
 # Golang
 export GO111MODULE="on"
 export GOPATH="$HOME/go"
@@ -76,7 +74,6 @@ fi;
 # Path setup
 export PATH="$PATH:${HOME}/.local/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
-export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:/opt/rocm/bin/"
 
 export FORCE_COLOR=1 # Force colors on turbo log output
@@ -95,3 +92,6 @@ esac
 # bun completions
 [ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
 [ -s "/Users/rohm/.bun/_bun" ] && source "/Users/rohm/.bun/_bun"
+
+# bun completions
+[ -s "/home/rohm/.bun/_bun" ] && source "/home/rohm/.bun/_bun"
