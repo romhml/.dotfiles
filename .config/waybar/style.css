@@ -34,7 +34,6 @@ background-color: #FFFFFF;
   margin-right: 2px;
   color: #ffffff;
   outline-style: none;
-  border-bottom: 2px solid transparent;
 }
 
 #workspaces button:hover {
@@ -44,8 +43,13 @@ background-color: #FFFFFF;
   border-color: transparent;
 }
 
-#workspaces button.focused {
-  border-bottom: 2px solid #d08770;
+#workspaces button.empty {
+  opacity: 0.3;
+}
+
+#workspaces button.active {
+  opacity: 1;
+  color: #8aadf4;
 }
 
 #workspaces button.urgent {
