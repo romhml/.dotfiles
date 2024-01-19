@@ -1,19 +1,15 @@
-/* Macchiato Blue */
 @define-color accent #8aadf4;
 @define-color txt #cad3f5;
-@define-color bg #24273a;
+@define-color bg rgba(36, 39, 58, 1);
 
  * {
     font-family: 'JetBrains Mono Nerd Font', monospace;
-    font-size: 14px;
+    font-size: 16px;
  }
 
  /* Window */
  window {
-    margin: 0px;
-    padding: 2px;
-    border-radius: 7px;
-    background-color: @bg;
+    background-color: transparent;
     animation: slideIn 0.1s ease-in-out both;
  }
 
@@ -32,9 +28,7 @@
  #inner-box {
     margin: 5px;
     padding: 2px;
-    border: none;
-    background-color: @bg;
-    animation: fadeIn 0.1s ease-in-out both;
+    animation: fadeIn 0.05s ease-in-out both;
  }
 
  /* Fade In */
@@ -51,8 +45,8 @@
  /* Outer Box */
  #outer-box {
     margin: 5px;
-    padding: 5px;
-    border: none;
+    padding: 10px;
+    border-radius: 10px;
     background-color: @bg;
  }
 
@@ -68,10 +62,11 @@
     margin: 0px;
     padding: 4px 10px;
     border: none;
-    color: @accent;
-    background-color: @bg;
-    animation: fadeIn 0.1s ease-in-out both;
     outline: none;
+    color: @accent;
+
+    background-color: transparent;
+    animation: fadeIn 0.1s ease-in-out both;
  }
 
  /* Text */
@@ -85,7 +80,9 @@
 
  /* Selected Entry */
  #entry:selected {
-   background-color: @bg;
+   background-color: transparent;
+   outline: none;
+   border: none;
  }
 
  #entry:selected #text {

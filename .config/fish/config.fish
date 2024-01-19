@@ -12,6 +12,18 @@ set LC_ALL en_US.UTF-8
 set EDITOR nvim
 
 set GPG_TTY $(tty)
+
+
+# FZF Fish commands:
+# Ctrl-o	Find a file.
+# Ctrl-r	Search through command history.
+# Alt-c	cd into sub-directories (recursively searched).
+# Alt-Shift-c	cd into sub-directories, including hidden ones.
+# Alt-o	Open a file/dir using default editor ($EDITOR)
+# Alt-Shift-o	Open a file/dir using xdg-open or open commandet -U FZF_COMPLETE 2
+set -U FZF_FIND_FILE_COMMAND "ag -l --hidden --ignore .git"
+set -U FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border"
+
 source ~/.config/aliases/common.sh
 source ~/.config/aliases/kubectl.sh
 

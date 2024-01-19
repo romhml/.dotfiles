@@ -1,5 +1,4 @@
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
   font-family: JetBrainsMono Nerd Font;
   font-size: 20px;
   min-height: 0;
@@ -86,7 +85,7 @@ background-color: #FFFFFF;
 }
 
 .modules-right {
-  border-radius: 5px;
+  border-radius: 8px;
   color: #ffffff;
   padding: 5px 10px;
   background-color: rgba(36,39,58, 0.90);
@@ -95,7 +94,7 @@ background-color: #FFFFFF;
 }
 
 .modules-left {
-  border-radius: 5px;
+  border-radius: 8px;
   color: #ffffff;
   padding: 5px 10px;
   background-color: rgba(36,39,58, 0.90);

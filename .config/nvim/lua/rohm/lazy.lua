@@ -18,7 +18,6 @@ require("lazy").setup({
 	"nvim-treesitter/playground",
 
 	-- Gotta go fast
-	"nathom/filetype.nvim",
 	"dstein64/vim-startuptime",
 
 	-- Telescope
@@ -87,17 +86,17 @@ require("lazy").setup({
 	{ "echasnovski/mini.comment", opts = {} },
 
 	-- Copilot
-	{
-		"github/copilot.vim",
-		keys = { "i" },
-		config = function()
-			vim.cmd([[
-        let g:copilot_filetypes = {
-          \ 'TelescopePrompt': v:false,
-          \ }
-      ]])
-		end,
-	},
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	keys = { "i" },
+	-- 	config = function()
+	-- 		vim.cmd([[
+	--        let g:copilot_filetypes = {
+	--          \ 'TelescopePrompt': v:false,
+	--          \ }
+	--      ]])
+	-- 	end,
+	-- },
 
 	-- Theme
 

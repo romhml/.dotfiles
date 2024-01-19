@@ -8,12 +8,27 @@ lsp.ensure_installed({
 	"rust_analyzer",
 })
 
+-- Activate poetry virtualenv automatically
+local pyright_capabilities = vim.lsp.protocol.make_client_capabilities()
+pyright_capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+lsp.configure("pyright", {
+	on_new_config = function(config, root_dir)
+		local env = vim.trim(vim.fn.system('cd "' .. root_dir .. '"; poetry env info -p 2>/dev/null'))
+		if string.len(env) > 0 then
+			config.settings.python.pythonPath = env .. "/bin/python"
+		end
+	end,
+	capabilities = pyright_capabilities,
+})
+
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		javascript = { "prettierd" },
 		vue = { "prettierd" },
+		html = { "prettierd" },
+		htmldjango = { "prettierd" },
 		typescript = { "prettierd" },
 		typescriptreact = { "prettierd" },
 		rust = {},
