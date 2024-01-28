@@ -1,10 +1,10 @@
 require("rohm.mappings")
-require("rohm.lazy")
+require("rohm.plugins")
 
 -- Gotta go fast
 vim.loader.enable()
 
-vim.o.wrap = false
+vim.o.wrap = true
 vim.opt.showmode = false
 
 -- Vertical split right

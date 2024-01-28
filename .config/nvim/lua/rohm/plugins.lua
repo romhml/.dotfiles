@@ -84,6 +84,7 @@ require("lazy").setup({
 	"tpope/vim-repeat",
 	"lukas-reineke/indent-blankline.nvim",
 	{ "echasnovski/mini.comment", opts = {} },
+	{ "chentoast/marks.nvim", opts = {} },
 
 	-- Copilot
 	-- {
