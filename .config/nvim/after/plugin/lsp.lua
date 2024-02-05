@@ -25,20 +25,20 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { "prettierd" },
-		vue = { "prettierd" },
-		html = { "prettierd" },
-		htmldjango = { "prettierd" },
-		typescript = { "prettierd" },
-		typescriptreact = { "prettierd" },
+		javascript = { "prettier" },
+		vue = { "prettier" },
+		html = { "prettier" },
+		htmldjango = { "prettier" },
+		typescript = { "prettier" },
+		typescriptreact = { "prettier" },
 		rust = {},
 	},
-	format_on_save = function(bufnr)
+	format_after_save = function(bufnr)
 		-- Disable with a global or buffer-local variable
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 			return
 		end
-		return { timeout_ms = 500, lsp_fallback = true }
+		return { lsp_fallback = true }
 	end,
 })
 
