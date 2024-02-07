@@ -15,3 +15,6 @@ alias vi=nvim
 # tmux
 alias t='tmux'
 alias t0='tmux new-session -As0'
+
+# sc
+alias sc='sc-im'

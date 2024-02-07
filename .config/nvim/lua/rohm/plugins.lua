@@ -85,6 +85,7 @@ require("lazy").setup({
 	"lukas-reineke/indent-blankline.nvim",
 	{ "echasnovski/mini.comment", opts = {} },
 	{ "chentoast/marks.nvim", opts = {} },
+	"vimwiki/vimwiki",
 
 	-- Copilot
 	-- {
@@ -100,12 +101,9 @@ require("lazy").setup({
 	-- },
 
 	-- Theme
-
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	"shaunsingh/nord.nvim",
 	"nvim-tree/nvim-web-devicons",
 	"nvim-lualine/lualine.nvim",
-
 	"rrethy/vim-illuminate",
 	{ "echasnovski/mini.indentscope", opts = {} },
 

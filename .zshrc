@@ -1,7 +1,6 @@
 # Performance monitoring, Uncomment and add zprof at the end.
 # zmodload zsh/zprof
 export ZSH="$HOME/.oh-my-zsh"
-
 plugins=(git zsh-completions zsh-autosuggestions fzf-zsh-plugin)
 
 set -o vi
