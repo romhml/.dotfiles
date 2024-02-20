@@ -94,3 +94,4 @@ esac
 
 # bun completions
 [ -s "/home/rohm/.bun/_bun" ] && source "/home/rohm/.bun/_bun"
+source /usr/share/nvm/init-nvm.sh
