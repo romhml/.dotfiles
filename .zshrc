@@ -25,8 +25,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 
 export GPG_TTY=$(tty)
-source ~/.config/aliases/common.sh
-source ~/.config/aliases/kubectl.sh
+source $HOME/.config/aliases/common.sh
+source $HOME/.config/aliases/kubectl.sh
 
 # Golang
 export GO111MODULE="on"
@@ -71,9 +71,10 @@ if [ $UNAME != "Darwin" ]; then
 fi;
 
 # Path setup
-export PATH="$PATH:${HOME}/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH="$PATH:/opt/rocm/bin/"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 export FORCE_COLOR=1 # Force colors on turbo log output
 
@@ -89,9 +90,12 @@ case ":$PATH:" in
 esac
 
 # bun completions
-[ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
-[ -s "/Users/rohm/.bun/_bun" ] && source "/Users/rohm/.bun/_bun"
+[ -s "$HOME/.oh-my-zsh/completions/_bun" ] && source "$HOME/.oh-my-zsh/completions/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# bun completions
-[ -s "/home/rohm/.bun/_bun" ] && source "/home/rohm/.bun/_bun"
 source /usr/share/nvm/init-nvm.sh
+
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source $HOME/.rvm/scripts/rvm
