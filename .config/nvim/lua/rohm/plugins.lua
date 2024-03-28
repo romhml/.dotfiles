@@ -138,11 +138,17 @@ require("lazy").setup({
 
 	-- Utils
 	"tpope/vim-surround",
+	"tpope/vim-abolish",
 	"tpope/vim-repeat",
 	"lukas-reineke/indent-blankline.nvim",
 	{ "echasnovski/mini.comment", opts = {} },
 	{ "chentoast/marks.nvim", opts = {} },
-	"vimwiki/vimwiki",
+	{
+		"vimwiki/vimwiki",
+		config = function()
+			vim.api.nvim_create_autocmd("FileType", { pattern = "vimwiki", command = "silent! unmap <buffer> -" })
+		end,
+	},
 
 	-- Copilot
 	-- {

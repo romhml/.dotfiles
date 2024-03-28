@@ -1,5 +1,5 @@
 #!/bin/zsh
-SELECTED=$(yadm list -a | fzfp --height 50% --preview "bat ~/{}")
+SELECTED=$(yadm list -a | fzfp --height 12 --width 70)
 
 if [[ -z $SELECTED ]]; then
     exit 0

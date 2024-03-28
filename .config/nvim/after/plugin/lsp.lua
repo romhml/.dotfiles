@@ -25,12 +25,12 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { "prettier" },
-		vue = { "prettier", "eslint_d" },
+		javascript = { "eslint_d" },
+		vue = { "eslint_d" },
 		html = { "prettier" },
 		htmldjango = { "prettier" },
-		typescript = { "prettier", "eslint_d" },
-		typescriptreact = { "prettier", "eslint_d" },
+		typescript = { "eslint_d" },
+		typescriptreact = { "eslint_d" },
 		rust = {},
 	},
 	format_after_save = function(bufnr)
