@@ -16,10 +16,10 @@ cmd - k : yabai -m window --focus north
 cmd - l : yabai -m window --focus east
 
 # Moving windows
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
+# shift + cmd - h : yabai -m window --warp west
+# shift + cmd - j : yabai -m window --warp south
+# shift + cmd - k : yabai -m window --warp north
+# shift + cmd - l : yabai -m window --warp east
 
 # Resize windows
 #
