@@ -29,15 +29,14 @@ if [ $(uname)="Darwin" ]; then
 
   export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
   export ANDROID_HOME=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/platform-tools
-fi
-
-if [ $UNAME != "Darwin" ]; then
+else
   export BROWSER=chromium
   alias open=xdg-open
+  source /usr/share/nvm/init-nvm.sh
 fi;
 
 # Path setup
@@ -66,17 +65,13 @@ eval "$(pyenv init --path)"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # gcloud
-# The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/.config/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.config/google-cloud-sdk/path.zsh.inc"; fi
-# The next line enables shell command completion for gcloud.
 if [ -f "$HOME/.config/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.config/google-cloud-sdk/completion.zsh.inc"; fi
 
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun completions
 [ -s "$HOME/.oh-my-zsh/completions/_bun" ] && source "$HOME/.oh-my-zsh/completions/_bun"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
@@ -93,7 +88,6 @@ export FORCE_COLOR=1 # Force colors on turbo log output
 export FZF_DEFAULT_OPTS='--color 16'
 export FZF_CTRL_R_OPTS='--height 7'
 
-source /usr/share/nvm/init-nvm.sh
 # Automatically setup nvm if nvmrc
 [[ -f ".nvmrc" ]] && nvm use
 
