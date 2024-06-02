@@ -3,8 +3,10 @@ require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"vue",
 		"css",
+		"scss",
 		"html",
 		"javascript",
+		"typescript",
 		"python",
 		"go",
 		"lua",

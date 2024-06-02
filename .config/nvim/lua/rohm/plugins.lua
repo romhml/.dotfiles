@@ -33,27 +33,23 @@ require("lazy").setup({
 
 	-- LSP
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		dependencies = {
-			-- LSP Support
-			"neovim/nvim-lspconfig",
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
+		-- LSP Support
+		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 
-			-- Autocompletion
-			"hrsh7th/nvim-cmp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
+		-- Autocompletion
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/nvim-cmp",
 
-			-- Snippets
-			"L3MON4D3/LuaSnip",
+		-- Snippets
+		"L3MON4D3/LuaSnip",
 
-			-- Formatting
-			{ "stevearc/conform.nvim" },
-		},
+		-- Formatting
+		{ "stevearc/conform.nvim" },
 	},
 
 	-- Git
@@ -141,7 +137,7 @@ require("lazy").setup({
 	"tpope/vim-abolish",
 	"tpope/vim-repeat",
 	"lukas-reineke/indent-blankline.nvim",
-	{ "echasnovski/mini.comment", opts = {} },
+	{ "numToStr/Comment.nvim", opts = {}, lazy = false },
 	{ "chentoast/marks.nvim", opts = {} },
 	{
 		"vimwiki/vimwiki",
