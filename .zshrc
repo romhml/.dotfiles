@@ -23,7 +23,7 @@ export GPG_TTY=$(tty)
 source $HOME/.config/aliases/common.sh
 source $HOME/.config/aliases/kubectl.sh
 
-if [ $(uname)="Darwin" ]; then
+if [ $UNAME = "Darwin" ]; then
   export PATH="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH"
   export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
@@ -34,6 +34,9 @@ if [ $(uname)="Darwin" ]; then
   export ANDROID_HOME=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/platform-tools
 else
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   export BROWSER=chromium
   alias open=xdg-open
   source /usr/share/nvm/init-nvm.sh
