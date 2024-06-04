@@ -47,9 +47,10 @@ require("lazy").setup({
 
 		-- Snippets
 		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
 
 		-- Formatting
-		{ "stevearc/conform.nvim" },
+		"stevearc/conform.nvim",
 	},
 
 	-- Git
