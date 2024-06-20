@@ -18,14 +18,10 @@ require("catppuccin").setup({
 		mini = {
 			enabled = true,
 		},
-		indent_blankline = {
-			enabled = true,
-		},
 		mason = true,
 		telescope = {
 			enabled = true,
 		},
-		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 	},
 })
 

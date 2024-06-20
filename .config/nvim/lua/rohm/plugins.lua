@@ -137,7 +137,6 @@ require("lazy").setup({
 	"tpope/vim-surround",
 	"tpope/vim-abolish",
 	"tpope/vim-repeat",
-	"lukas-reineke/indent-blankline.nvim",
 	{ "numToStr/Comment.nvim", opts = {}, lazy = false },
 	{ "chentoast/marks.nvim", opts = {} },
 	{
@@ -162,10 +161,9 @@ require("lazy").setup({
 
 	-- Theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	"nvim-tree/nvim-web-devicons",
-	"nvim-lualine/lualine.nvim",
-	"rrethy/vim-illuminate",
+	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "echasnovski/mini.indentscope", opts = {} },
+	"rrethy/vim-illuminate",
 
 	-- FS
 	{
