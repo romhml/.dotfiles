@@ -35,10 +35,7 @@ vim.cmd.colorscheme("catppuccin")
 require("lualine").setup({
 	options = {
 		theme = "catppuccin",
-		-- Hidding since it breaks intro screen
-		-- Follow this issue for updates: https://github.com/nvim-lualine/lualine.nvim/issues/773
-		-- section_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 	},
 })
 
