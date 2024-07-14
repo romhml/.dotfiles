@@ -1,103 +1,83 @@
-# Performance monitoring, Uncomment and add zprof at the end.
 # zmodload zsh/zprof
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(git zsh-completions zsh-autosuggestions fzf-zsh-plugin)
 
-set -o vi
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
-source $ZSH/oh-my-zsh.sh
-export UNAME=$(uname)
+source "${ZINIT_HOME}/zinit.zsh"
+eval "$(starship init zsh)"
 
-export LC_ALL=en_US.UTF-8
-export EDITOR=nvim
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ is-snippet \
+  OMZP::{git,sudo,archlinux,extract} \
+  OMZP::{kubectl,podman} \
+  OMZP::golang \
+  OMZP::{python,pip,pyenv} \
+  OMZP::{yarn,node}
 
-export ZVM_CURSOR_STYLE_ENABLED=false
+zi ice wait lucid; zi light Aloxaf/fzf-tab
+zi ice wait lucid; zi light jeffreytse/zsh-vi-mode
 
-# Vim navigation in zsh menuselect
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
-export GPG_TTY=$(tty)
 source $HOME/.config/aliases/common.sh
 source $HOME/.config/aliases/kubectl.sh
 
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# FZF
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_OPTS='--color bw'
+export FZF_CTRL_R_OPTS='--height 7'
+
+# Vim mode
+ZVM_CURSOR_STYLE_ENABLED=false
+KEYTIMEOUT=1
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+
+# Environment
+export UNAME=$(uname)
+export CLICOLOR=1
+export LC_ALL=en_US.UTF-8
+export EDITOR=nvim
+export GPG_TTY=$(tty)
+
 if [ $UNAME = "Darwin" ]; then
-  export PATH="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin:$PATH"
-  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-  export ANDROID_HOME=$HOME/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_HOME/platform-tools
-else
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+else;
   export BROWSER=chromium
   alias open=xdg-open
-  source /usr/share/nvm/init-nvm.sh
 fi;
 
-# Path setup
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/usr/local/opt/llvm/bin"
-export PATH="$PATH:/opt/rocm/bin/"
-export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
-
-source <(kubectl completion zsh)
-
-eval "$(starship init zsh)"
-eval "$(pyenv init -)"
-
-# Golang
-export GO111MODULE="on"
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
-
-# Python
 export CLOUDSDK_PYTHON=/usr/bin/python3
+export PATH="$PATH:$HOME/.local/bin"
+eval "$(fnm env --use-on-cd)"
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
-# Rust
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# gcloud
-if [ -f "$HOME/.config/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/.config/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "$HOME/.config/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/.config/google-cloud-sdk/completion.zsh.inc"; fi
-
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "$HOME/.oh-my-zsh/completions/_bun" ] && source "$HOME/.oh-my-zsh/completions/_bun"
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-export FORCE_COLOR=1 # Force colors on turbo log output
-
-# Fix FZF colors
-export FZF_DEFAULT_OPTS='--color 16'
-export FZF_CTRL_R_OPTS='--height 7'
-
-# Automatically setup nvm if nvmrc
-[[ -f ".nvmrc" ]] && nvm use
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source $HOME/.rvm/scripts/rvm
-
-# grit
-export GRIT_INSTALL="$HOME/.grit"
-export PATH="$GRIT_INSTALL/bin:$PATH"
+# zprof
