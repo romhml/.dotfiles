@@ -14,15 +14,19 @@ zinit wait lucid for \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
+    Aloxaf/fzf-tab \
  is-snippet \
-  OMZP::{git,sudo,archlinux,extract} \
-  OMZP::{kubectl,podman} \
+  OMZP::{git,archlinux,extract} \
+  OMZP::{podman,docker-compose/_docker-compose} \
   OMZP::golang \
   OMZP::{python,pip,pyenv} \
-  OMZP::{yarn,node}
+  OMZP::{yarn,node} \
+ as"completion" OMZP::docker/completions/_docker
 
-zi ice wait lucid; zi light Aloxaf/fzf-tab
-zi ice wait lucid; zi light jeffreytse/zsh-vi-mode
+# Vim mode
+KEYTIMEOUT=1
+set -o vi
+bindkey "^?" backward-delete-char
 
 source $HOME/.config/aliases/common.sh
 source $HOME/.config/aliases/kubectl.sh
@@ -49,10 +53,6 @@ eval "$(fzf --zsh)"
 export FZF_DEFAULT_OPTS='--color bw'
 export FZF_CTRL_R_OPTS='--height 7'
 
-# Vim mode
-ZVM_CURSOR_STYLE_ENABLED=false
-KEYTIMEOUT=1
-
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -74,7 +74,7 @@ fi;
 
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export PATH="$PATH:$HOME/.local/bin"
-eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd --log-level quiet)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
