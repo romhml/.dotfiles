@@ -43,7 +43,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "tsserver", "volar@1.8.27", "pyright", "rust_analyzer", "lua_ls" },
+	ensure_installed = { "ts_ls", "volar@1.8.27", "pyright", "rust_analyzer", "lua_ls" },
 	handlers = {
 		default_setup,
 		function(server_name)
@@ -84,12 +84,12 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
-		javascript = { "prettier" },
-		vue = { "prettier" },
-		html = { "prettier" },
-		-- htmldjango = { "prettier" },
-		typescript = { "prettier" },
-		-- typescriptreact = { "eslint_d" },
+		javascript = { "prettier", "eslint_d" },
+		vue = { "prettier", "eslint_d" },
+		html = { "prettier", "eslint_d" },
+		htmldjango = { "prettier" },
+		typescript = { "prettier", "eslint_d" },
+		typescriptreact = { "prettier", "eslint_d" },
 		-- rust = {},
 	},
 	format_after_save = function(bufnr)
@@ -99,6 +99,35 @@ require("conform").setup({
 		end
 		return { lsp_fallback = false }
 	end,
+
+	formatters = {
+		prettier = {
+			require_cwd = true,
+			cwd = require("conform.util").root_file({
+				".prettierrc",
+				".prettierrc.json",
+				".prettierrc.yml",
+				".prettierrc.yaml",
+				".prettierrc.json5",
+				".prettierrc.js",
+				".prettierrc.cjs",
+				".prettierrc.mjs",
+				".prettierrc.toml",
+				"prettier.config.js",
+				"prettier.config.cjs",
+				"prettier.config.mjs",
+			}),
+		},
+		eslint = {
+			-- cwd means "config working directory"
+			require_cwd = true,
+			cwd = require("conform.util").root_file({
+				"eslint.config.js",
+				"eslint.config.cjs",
+				"eslint.config.mjs",
+			}),
+		},
+	},
 })
 
 -- Format disable command for Conform
@@ -156,7 +185,7 @@ local mason_registry = require("mason-registry")
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
 	.. "/node_modules/@vue/language-server"
 
-lsp.tsserver.setup({
+lsp.ts_ls.setup({
 	init_options = {
 		plugins = {
 			{

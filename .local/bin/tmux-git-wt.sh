@@ -1,5 +1,5 @@
 # Add worktree check
-if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1 && ! git rev-parse --is-bare-repository; then
+if [ $(git rev-parse --is-inside-work-tree) = 'false' ] && [ $(git rev-parse --is-bare-repository) = 'false' ]; then
     exit 0
 fi
 
@@ -17,8 +17,7 @@ REPOSITORY=$(basename "${WORKTREE_ROOT}")
 
 if [[ -z $WORKTREE_PATH ]]; then
   WORKTREE_PATH=$WORKTREE_ROOT/$SELECTED
-  echo git worktree add $WORKTREE_PATH $SELECTED
-  git worktree add $WORKTREE_PATH $SELECTED
+  git worktree add --guess-remote $WORKTREE_PATH $SELECTED
 fi
 
 SELECTED_NAME=$(echo "${REPOSITORY}@${WORKTREE}" | tr . _)

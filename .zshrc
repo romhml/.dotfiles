@@ -65,10 +65,11 @@ export EDITOR=nvim
 export GPG_TTY=$(tty)
 
 if [ $UNAME = "Darwin" ]; then
-
+  export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 else;
   export BROWSER=chromium
   alias open=xdg-open
+  alias ls="ls --color"
 fi;
 
 export CLOUDSDK_PYTHON=/usr/bin/python3
@@ -79,4 +80,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions
+[ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
+
 # zprof
+
