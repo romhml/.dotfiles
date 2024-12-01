@@ -67,7 +67,7 @@ export GPG_TTY=$(tty)
 if [ $UNAME = "Darwin" ]; then
   export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 else;
-  export BROWSER=chromium
+  export BROWSER=zen-browser
   alias open=xdg-open
   alias ls="ls --color"
 fi;

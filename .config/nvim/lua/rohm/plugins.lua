@@ -146,19 +146,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- Copilot
-	-- {
-	-- 	"github/copilot.vim",
-	-- 	keys = { "i" },
-	-- 	config = function()
-	-- 		vim.cmd([[
-	--        let g:copilot_filetypes = {
-	--          \ 'TelescopePrompt': v:false,
-	--          \ }
-	--      ]])
-	-- 	end,
-	-- },
-
 	-- Theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
@@ -178,6 +165,36 @@ require("lazy").setup({
 		keys = {
 			{ "<leader>b", "<CMD> Oil --float <CR>" },
 			{ "-", "<CMD>Oil<CR>" },
+		},
+	},
+
+	-- AI
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+					},
+				},
+			},
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = { file_types = { "markdown", "Avante" } },
+				ft = { "markdown", "Avante" },
+			},
 		},
 	},
 }, {
