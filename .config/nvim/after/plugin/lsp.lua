@@ -43,7 +43,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "ts_ls", "volar@1.8.27", "pyright", "rust_analyzer", "lua_ls" },
+	ensure_installed = { "ts_ls", "volar", "pyright", "rust_analyzer", "lua_ls" },
 	handlers = {
 		default_setup,
 		function(server_name)
@@ -168,17 +168,17 @@ lsp.lua_ls.setup({
 })
 
 -- Python Setup
-local pyright_capabilities = vim.lsp.protocol.make_client_capabilities()
-pyright_capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
-lsp.pyright.setup({
-	on_new_config = function(config, root_dir)
-		local env = vim.trim(vim.fn.system('cd "' .. root_dir .. '"; poetry env info -p 2>/dev/null'))
-		if string.len(env) > 0 then
-			config.settings.python.pythonPath = env .. "/bin/python"
-		end
-	end,
-	capabilities = pyright_capabilities,
-})
+-- local pyright_capabilities = vim.lsp.protocol.make_client_capabilities()
+-- pyright_capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+-- lsp.pyright.setup({
+-- 	on_new_config = function(config, root_dir)
+-- 		local env = vim.trim(vim.fn.system('cd "' .. root_dir .. '"; poetry env info -p 2>/dev/null'))
+-- 		if string.len(env) > 0 then
+-- 			config.settings.python.pythonPath = env .. "/bin/python"
+-- 		end
+-- 	end,
+-- 	capabilities = pyright_capabilities,
+-- })
 
 -- Volar setup
 local mason_registry = require("mason-registry")

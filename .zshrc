@@ -18,7 +18,7 @@ zinit wait lucid for \
   OMZP::{git,archlinux,extract} \
   OMZP::{podman,docker-compose/_docker-compose} \
   OMZP::golang \
-  OMZP::{python,pip,pyenv} \
+  OMZP::{python,pip} \
   OMZP::{yarn,node} \
  as"completion" OMZP::docker/completions/_docker
 
@@ -75,11 +75,6 @@ fi;
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export PATH="$PATH:$HOME/.local/bin"
 eval "$(fnm env --use-on-cd --log-level quiet)"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
