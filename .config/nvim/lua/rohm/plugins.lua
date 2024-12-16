@@ -139,12 +139,6 @@ require("lazy").setup({
 	"tpope/vim-repeat",
 	{ "numToStr/Comment.nvim", opts = {}, lazy = false },
 	{ "chentoast/marks.nvim", opts = {} },
-	{
-		"vimwiki/vimwiki",
-		config = function()
-			vim.api.nvim_create_autocmd("FileType", { pattern = "vimwiki", command = "silent! unmap <buffer> -" })
-		end,
-	},
 
 	-- Theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
@@ -195,6 +189,31 @@ require("lazy").setup({
 				opts = { file_types = { "markdown", "Avante" } },
 				ft = { "markdown", "Avante" },
 			},
+		},
+	},
+
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			workspaces = {
+				{ name = "notes", path = "~/Notes" },
+			},
+			daily_notes = {
+				folder = "Dailies",
+			},
+			ui = {
+				enable = false,
+			},
+		},
+		keys = {
+			{ "<leader>np", "<CMD> ObsidianYesterday<CR>" },
+			{ "<leader>nn", "<CMD> ObsidianToday<CR>" },
+			{ "<leader>nf", "<CMD> ObsidianQuickSwitch<CR>" },
+			{ "<leader>ng", "<CMD> ObsidianSearch<CR>" },
 		},
 	},
 }, {

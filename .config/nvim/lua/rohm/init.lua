@@ -6,6 +6,7 @@ vim.loader.enable()
 
 vim.o.wrap = true
 vim.opt.showmode = false
+vim.o.conceallevel = 1
 
 vim.o.linebreak = true
 -- Vertical split right
