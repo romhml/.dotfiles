@@ -76,11 +76,18 @@ export CLOUDSDK_PYTHON=/usr/bin/python3
 export PATH="$PATH:$HOME/.local/bin"
 eval "$(fnm env --use-on-cd --log-level quiet)"
 
+eval "$(pyenv init --path)"
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
 # bun completions
 [ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
+
+# rocm
+export ROCM_PATH=/opt/rocm
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
 
 # zprof
 

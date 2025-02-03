@@ -198,6 +198,7 @@ lsp.ts_ls.setup({
 })
 
 lsp.volar.setup({
+	capabilities = require("cmp_nvim_lsp").default_capabilities(),
 	init_options = {
 		vue = {
 			hybridMode = false,

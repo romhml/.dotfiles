@@ -161,61 +161,6 @@ require("lazy").setup({
 			{ "-", "<CMD>Oil<CR>" },
 		},
 	},
-
-	-- AI
-	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			{
-				-- support for image pasting
-				"HakonHarnes/img-clip.nvim",
-				event = "VeryLazy",
-				opts = {
-					default = {
-						embed_image_as_base64 = false,
-						prompt_for_file_name = false,
-						drag_and_drop = {
-							insert_mode = true,
-						},
-					},
-				},
-			},
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = { file_types = { "markdown", "Avante" } },
-				ft = { "markdown", "Avante" },
-			},
-		},
-	},
-
-	{
-		"epwalsh/obsidian.nvim",
-		version = "*", -- recommended, use latest release instead of latest commit
-		lazy = true,
-		ft = "markdown",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			workspaces = {
-				{ name = "notes", path = "~/Notes" },
-			},
-			daily_notes = {
-				folder = "Dailies",
-			},
-			ui = {
-				enable = false,
-			},
-		},
-		keys = {
-			{ "<leader>np", "<CMD> ObsidianYesterday<CR>" },
-			{ "<leader>nn", "<CMD> ObsidianToday<CR>" },
-			{ "<leader>nf", "<CMD> ObsidianQuickSwitch<CR>" },
-			{ "<leader>ng", "<CMD> ObsidianSearch<CR>" },
-		},
-	},
 }, {
 	ui = { border = "rounded" },
 })
