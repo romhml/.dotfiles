@@ -9,3 +9,4 @@ print_command=true
 layer=overlay
 insensitive=true
 prompt=
+hide_scroll=true
