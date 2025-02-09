@@ -31,7 +31,7 @@ done
 if [[ $# -eq 1 ]]; then
     SELECTED=$1
 else
-    SELECTED=$(echo "$ALL_PROJECTS" | sort -u | fzfp --height 12 --width 70 --border none)
+    SELECTED=$(echo "$ALL_PROJECTS" | sort -u | fzf --tmux center)
 fi
 
 # Exit if no selection was made

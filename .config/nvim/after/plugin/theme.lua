@@ -5,32 +5,11 @@ set guifont=JetBrainsMono\ Nerd\ Font:h16
 set fillchars+=vert:│
 ]])
 
-require("catppuccin").setup({
-	flavour = "macchiato",
-	transparent_background = true,
-	show_end_of_buffer = true,
-
-	integrations = {
-		cmp = true,
-		gitsigns = true,
-		nvimtree = true,
-		treesitter = true,
-		mini = {
-			enabled = true,
-		},
-		mason = true,
-		telescope = {
-			enabled = true,
-		},
-	},
-})
-
--- setup must be called before loading
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("mellow")
 
 require("lualine").setup({
 	options = {
-		theme = "catppuccin",
+		theme = "mellow",
 		section_separators = { left = "", right = "" },
 	},
 })

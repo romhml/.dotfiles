@@ -3,7 +3,7 @@ if [ $(git rev-parse --is-inside-work-tree) = 'false' ] && [ $(git rev-parse --i
     exit 0
 fi
 
-SELECTED=$(git branch --format='%(refname:short)' | fzfp --height 12 --width 70 --border none)
+SELECTED=$(git branch --format='%(refname:short)' | fzf --tmux center)
 
 # Exit if no selection was made
 if [[ -z $SELECTED ]]; then

@@ -1,5 +1,5 @@
 #!/bin/zsh
-SELECTED=$(yadm list -a | fzfp --height 12 --width 70)
+SELECTED=$(yadm list -a | fzf --tmux center)
 
 if [[ -z $SELECTED ]]; then
     exit 0

@@ -141,7 +141,11 @@ require("lazy").setup({
 	{ "chentoast/marks.nvim", opts = {} },
 
 	-- Theme
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "mellow-theme/mellow.nvim", config = function()
+      vim.g.mellow_italic_functions = true
+      vim.g.mellow_transparent = true
+    end
+  },
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "echasnovski/mini.indentscope", opts = {} },
 	"rrethy/vim-illuminate",
