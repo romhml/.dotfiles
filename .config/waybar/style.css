@@ -53,11 +53,11 @@ background-color: #FFFFFF;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #f5a191;
 }
 
 #mode {
-  background-color: #64727d;
+  color: #64727d;
 }
 
 #clock,
@@ -105,86 +105,10 @@ background-color: #FFFFFF;
   margin-right: 0;
 }
 
-#clock {
-}
-
-#battery {
-}
-
 #battery.charging,
 #battery.plugged {
 }
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
-}
-
-#battery.critical:not(.charging) {
-}
-
 label:focus {
   background-color: #000000;
-}
-
-#cpu {
-}
-
-#memory {
-}
-
-#disk {
-}
-
-#backlight {
-}
-
-#network {
-}
-
-#network.disconnected {
-}
-
-#pulseaudio.muted {
-}
-
-#custom-media {
-}
-
-#custom-media.custom-spotify {
-}
-
-#custom-media.custom-vlc {
-}
-
-#temperature {
-}
-
-#temperature.critical {
-}
-
-#tray {
-}
-
-#idle_inhibitor {
-}
-
-#idle_inhibitor.activated {
-}
-
-#mpd {
-}
-
-#mpd.disconnected {
-}
-
-#mpd.stopped {
-}
-
-#mpd.paused {
-}
-
-#language {
 }
