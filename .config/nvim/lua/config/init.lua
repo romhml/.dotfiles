@@ -1,5 +1,12 @@
-require("rohm.mappings")
-require("rohm.plugins")
+vim.o.termguicolors = true
+
+require("config.lazy")
+require("config.mappings")
+
+vim.cmd([[
+set guifont=JetBrainsMono\ Nerd\ Font:h16
+set fillchars+=vert:│
+]])
 
 -- Gotta go fast
 vim.loader.enable()

@@ -1,4 +1,4 @@
 -- init.lua
 vim.g.mapleader = " "
 
-require("rohm")
+require("config")
