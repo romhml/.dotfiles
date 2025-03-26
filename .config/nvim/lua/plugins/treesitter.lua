@@ -1,4 +1,6 @@
 return {
+	"nvim-treesitter/nvim-treesitter-textobjects",
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
@@ -11,10 +13,10 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
+					init_selection = "<cr>",
+					node_incremental = "<leader>ti",
+					scope_incremental = "<leader>ts",
+					node_decremental = "<leader>td",
 				},
 			},
 
@@ -30,13 +32,6 @@ return {
 						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 						["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
 					},
-					-- You can choose the select mode (default is charwise 'v')
-					--
-					-- Can also be a function which gets passed a table with the keys
-					-- * query_string: eg '@function.inner'
-					-- * method: eg 'v' or 'o'
-					-- and should return the mode ('v', 'V', or '<c-v>') or a table
-					-- mapping query_strings to modes.
 					selection_modes = {
 						["@parameter.outer"] = "v", -- charwise
 						["@function.outer"] = "V", -- linewise
@@ -67,6 +62,4 @@ return {
 			},
 		},
 	},
-
-	"nvim-treesitter/nvim-treesitter-textobjects",
 }

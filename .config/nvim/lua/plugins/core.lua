@@ -1,33 +1,18 @@
 return {
-	-- Gotta go fast
-	"dstein64/vim-startuptime",
-
 	-- Tmux
 	"christoomey/vim-tmux-navigator",
 
 	-- Better Undos
-	{
-		"mbbill/undotree",
-		keys = {
-			{ "<leader>u", "<CMD> UndotreeToggle <CR>" },
-		},
-	},
+	{ "mbbill/undotree", keys = { { "<leader>u", "<CMD> UndotreeToggle <CR>" } } },
 
 	-- Utils
 	"tpope/vim-surround",
 	"tpope/vim-abolish",
 	"tpope/vim-repeat",
-	{ "numToStr/Comment.nvim", opts = {}, lazy = false },
-	{ "chentoast/marks.nvim", opts = {} },
-	{
-		"norcalli/nvim-colorizer.lua",
-		config = {
-			"css",
-			"javascript",
-			"html",
-			"vue",
-		},
-	},
+	"numToStr/Comment.nvim",
+	"chentoast/marks.nvim",
+
+	{ "norcalli/nvim-colorizer.lua", config = { "css", "javascript", "html", "vue" } },
 
 	-- FS
 	{
@@ -54,7 +39,6 @@ return {
 				["g."] = { "actions.toggle_hidden", mode = "n" },
 				["g\\"] = { "actions.toggle_trash", mode = "n" },
 			},
-
 			-- Set to false to disable all of the above keymaps
 			use_default_keymaps = false,
 		},

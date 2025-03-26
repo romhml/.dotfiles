@@ -5,6 +5,7 @@ return {
 		version = "*",
 		opts = {
 			provider = "mistral", -- "claude" or "openai" or "azure"
+			hints = { enabled = false },
 			vendors = {
 				mistral = {
 					api_key_name = "MISTRAL_API_KEY",

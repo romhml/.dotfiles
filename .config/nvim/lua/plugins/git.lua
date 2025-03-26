@@ -48,12 +48,6 @@ return {
 		},
 	},
 
-	{
-		"f-person/git-blame.nvim",
-		config = function()
-			vim.g.gitblame_delay = 1000
-		end,
-	},
-
+	"f-person/git-blame.nvim",
 	"tpope/vim-fugitive",
 }
