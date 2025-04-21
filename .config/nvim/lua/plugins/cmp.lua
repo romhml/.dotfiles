@@ -9,15 +9,12 @@ return {
 				enabled = false,
 				show_with_menu = false,
 			},
-			menu = { auto_show = false, border = "rounded" },
+			menu = { auto_show = true },
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 200,
-				window = { border = "rounded" },
 			},
 		},
-
-		signature = { window = { border = "single" } },
 
 		keymap = {
 			preset = "default",

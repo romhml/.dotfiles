@@ -1,4 +1,6 @@
 return {
+	"takac/vim-hardtime",
+
 	-- Tmux
 	"christoomey/vim-tmux-navigator",
 

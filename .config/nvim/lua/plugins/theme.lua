@@ -1,5 +1,4 @@
 vim.opt.cursorline = true
-vim.opt.winblend = 0
 
 local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
@@ -28,12 +27,12 @@ return {
 			vim.cmd.colorscheme("mellow")
 		end,
 	},
+
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
 			options = {
-				theme = "mellow",
 				section_separators = { left = "", right = "" },
 			},
 		},

@@ -5,13 +5,21 @@ return {
 		dependencies = {
 			{ "williamboman/mason.nvim", opts = { ui = { border = "rounded" } } },
 			{ "williamboman/mason-lspconfig.nvim", config = function() end },
-			"saghen/blink.cmp",
 		},
 
 		opts = {
 			servers = {
 				ts_ls = {
 					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				},
+				lua_ls = {
+					settings = {
+						Lua = {
+							diagnostics = {
+								globals = { "vim" },
+							},
+						},
+					},
 				},
 			},
 		},
@@ -49,7 +57,6 @@ return {
 			mason_lspconfig.setup_handlers({
 				function(server_name)
 					local config = opts.servers[server_name] or {}
-					config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 					lspconfig[server_name].setup(config)
 				end,
 			})

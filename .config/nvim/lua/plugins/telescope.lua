@@ -1,3 +1,16 @@
+vim.api.nvim_create_autocmd("User", {
+	pattern = "TelescopeFindPre",
+	callback = function()
+		vim.opt_local.winborder = "none"
+		vim.api.nvim_create_autocmd("WinLeave", {
+			once = true,
+			callback = function()
+				vim.opt_local.winborder = "rounded"
+			end,
+		})
+	end,
+})
+
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
@@ -14,36 +27,10 @@ return {
 		},
 
 		pickers = {
-			find_files = {
-				theme = "dropdown",
-				previewer = false,
-				find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-			},
-
-			live_grep = {
-				theme = "dropdown",
-				hidden = true,
-			},
-
-			buffers = {
-				themes = "dropdown",
-				previewer = false,
-			},
-
-			git_files = {
-				themes = "dropdown",
-				previewer = false,
-			},
-
-			git_branches = {
-				themes = "dropdown",
-				previewer = false,
-			},
-
-			git_commits = {
-				themes = "dropdown",
-				previewer = false,
-			},
+			find_files = { theme = "dropdown", previewer = false },
+			buffers = { themes = "dropdown", previewer = false },
+			git_files = { themes = "dropdown", previewer = false },
+			-- git_branches = { themes = "dropdown", previewer = false },
 		},
 	},
 

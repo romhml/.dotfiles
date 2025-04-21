@@ -89,7 +89,6 @@ export HSA_OVERRIDE_GFX_VERSION=10.3.0
 
 # zprof
 
-
 # pnpm
 export PNPM_HOME="/home/rohm/.local/share/pnpm"
 case ":$PATH:" in
