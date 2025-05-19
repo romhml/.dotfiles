@@ -27,7 +27,23 @@ return {
 		},
 
 		pickers = {
-			find_files = { theme = "dropdown", previewer = false },
+			find_files = {
+				theme = "dropdown",
+				previewer = false,
+				find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+			},
+			live_grep = {
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--hidden",
+				},
+			},
 			buffers = { themes = "dropdown", previewer = false },
 			git_files = { themes = "dropdown", previewer = false },
 			-- git_branches = { themes = "dropdown", previewer = false },
@@ -36,6 +52,7 @@ return {
 
 	keys = {
 		{ "<leader>ff", "<CMD>Telescope find_files<CR>", mode = "n" },
+		{ "<leader>fr", "<CMD>Telescope resume<CR>", mode = "n" },
 		{ "<leader>fg", "<CMD>Telescope live_grep<CR>", mode = "n" },
 		{ "<leader>fh", "<CMD>Telescope help_tags<CR>", mode = "n" },
 		{ "<leader>fm", "<CMD>Telescope marks<CR>", mode = "n" },
