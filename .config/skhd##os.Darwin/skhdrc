@@ -4,7 +4,7 @@
 cmd - t : kitty $HOME
 
 # Open browser
-cmd - w : open -a "Arc"
+cmd - w : open -a "Zen Browser"
 
 
 cmd + shift - s : yabai -m window --toggle zoom-fullscreen
