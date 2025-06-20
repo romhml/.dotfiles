@@ -8,15 +8,53 @@ return {
 	{ "mbbill/undotree", keys = { { "<leader>u", "<CMD> UndotreeToggle <CR>" } } },
 
 	-- Utils
-	"tpope/vim-surround",
 	"tpope/vim-abolish",
 	"tpope/vim-repeat",
+
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		opts = {},
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+			presets = {
+				bottom_search = true, -- use a classic bottom cmdline for search
+				command_palette = true, -- position the cmdline and popupmenu together
+				lsp_doc_border = true, -- add a border to hover docs and signature help
+			},
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+		},
+	},
 	"numToStr/Comment.nvim",
-	"chentoast/marks.nvim",
 
-	{ "norcalli/nvim-colorizer.lua", config = { "css", "javascript", "html", "vue" } },
+	{ "norcalli/nvim-colorizer.lua", opts = { "css", "javascript", "html", "vue" } },
 
-	-- FS
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+		dependencies = {
+			"saghen/blink.cmp",
+		},
+		opts = {
+			preview = {
+				filetypes = { "markdown", "codecompanion" },
+			},
+		},
+	},
+
+	{
+		"stevearc/quicker.nvim",
+		event = "FileType qf",
+		opts = {},
+	},
+
 	{
 		"stevearc/oil.nvim",
 		opts = {
@@ -47,5 +85,10 @@ return {
 		keys = {
 			{ "-", "<CMD>Oil<CR>" },
 		},
+	},
+	{
+		"3rd/image.nvim",
+		build = false,
+		opts = { processor = "magick_cli" },
 	},
 }

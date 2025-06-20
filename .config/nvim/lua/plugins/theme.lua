@@ -4,6 +4,17 @@ local augroup = vim.api.nvim_create_augroup
 local yank_group = augroup("HighlightYank", {})
 local autocmd = vim.api.nvim_create_autocmd
 
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.INFO] = "",
+		},
+	},
+})
+
 autocmd("TextYankPost", {
 	group = yank_group,
 	pattern = "*",
@@ -18,6 +29,7 @@ autocmd("TextYankPost", {
 return {
 	{
 		"mellow-theme/mellow.nvim",
+		priority = 1000,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -37,6 +49,4 @@ return {
 			},
 		},
 	},
-
-	"rrethy/vim-illuminate",
 }

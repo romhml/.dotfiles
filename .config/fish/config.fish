@@ -24,8 +24,8 @@ set GPG_TTY $(tty)
 set -U FZF_FIND_FILE_COMMAND "ag -l --hidden --ignore .git"
 set -U FZF_DEFAULT_OPTS "--height 40% --layout=reverse --border"
 
-source ~/.config/aliases/common.sh
-source ~/.config/aliases/kubectl.sh
+# source ~/.config/aliases/common.sh
+# source ~/.config/aliases/kubectl.sh
 
 set BAT_THEME Nord
 
@@ -38,16 +38,16 @@ set GOPATH $HOME/go
 set PATH $GOPATH/bin $PATH
 
 # Python
-set CLOUDSDK_PYTHON /usr/bin/python3
-set PYENV_ROOT "$HOME/.pyenv"
-set PATH "$PYENV_ROOT/bin" $PATH
-eval "$(pyenv init --path)"
+# set CLOUDSDK_PYTHON /usr/bin/python3
+# set PYENV_ROOT "$HOME/.pyenv"
+# set PATH "$PYENV_ROOT/bin" $PATH
+# eval "$(pyenv init --path)"
 
 # Rust
 set PATH $HOME/.cargo/bin $PATH
 
 # Kube
-kubectl completion fish | source
+# kubectl completion fish | source
 
 if [ $UNAME="Darwin" ]
   set PATH "/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin" $PATH

@@ -42,12 +42,20 @@ return {
 	},
 
 	{
-		"kdheepak/lazygit.nvim",
+		"sindrets/diffview.nvim",
 		keys = {
-			{ "<leader>gG", "<CMD> LazyGit <CR>" },
+			{ "<leader>gD", "<CMD> DiffviewOpen <CR>" },
+			{ "<leader>gH", "<CMD> DiffviewFileHistory <CR>" },
 		},
 	},
-
-	"f-person/git-blame.nvim",
-	"tpope/vim-fugitive",
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+		},
+		keys = {
+			{ "<leader>gg", "<CMD> Neogit <CR>" },
+		},
+	},
 }

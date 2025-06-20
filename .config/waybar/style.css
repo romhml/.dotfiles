@@ -90,8 +90,8 @@ background-color: #FFFFFF;
   border-radius: 8px;
   color: #ffffff;
   padding: 5px 8px;
-  background-color: rgba(22, 22, 23, 0.8);
-  border: 1px rgba(62, 62, 67, 0.87) solid;
+  /* background-color: rgba(22, 22, 23, 0.8); */
+  /* border: 1px rgba(62, 62, 67, 0.87) solid; */
   color: #ffffff;
 }
 

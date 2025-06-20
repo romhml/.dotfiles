@@ -16,6 +16,12 @@ return {
 			},
 		},
 
+		sources = {
+			per_filetype = {
+				codecompanion = { "codecompanion" },
+			},
+		},
+
 		keymap = {
 			preset = "default",
 			["<C-n>"] = {

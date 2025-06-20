@@ -72,6 +72,8 @@ else;
   alias ls="ls --color"
 fi;
 
+export PATH="$PATH:$HOME/.cargo/bin"
+
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export PATH="$PATH:$HOME/.local/bin"
 eval "$(fnm env --use-on-cd --log-level quiet)"
@@ -96,3 +98,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export PATH=$PATH:/home/rohm/.spicetify
