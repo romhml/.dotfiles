@@ -61,7 +61,10 @@ zstyle ':completion:*' menu no
 export UNAME=$(uname)
 export CLICOLOR=1
 export LC_ALL=en_US.UTF-8
+
 export EDITOR=nvim
+export LAUNCH_EDITOR=nvimux
+
 export GPG_TTY=$(tty)
 
 if [ $UNAME = "Darwin" ]; then

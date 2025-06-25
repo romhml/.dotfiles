@@ -44,6 +44,7 @@ return {
 		},
 		opts = {
 			preview = {
+				enable = true,
 				filetypes = { "markdown", "codecompanion" },
 			},
 		},
@@ -86,9 +87,25 @@ return {
 			{ "-", "<CMD>Oil<CR>" },
 		},
 	},
+
 	{
 		"3rd/image.nvim",
 		build = false,
-		opts = { processor = "magick_cli" },
+		opts = {
+			backend = "kitty",
+			processor = "magick_cli", -- or "magick_rock"
+			integrations = {
+				markdown = {
+					enabled = true,
+					clear_in_insert_mode = false,
+					download_remote_images = true,
+					only_render_image_at_cursor = false,
+					filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+				},
+			},
+		},
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 	},
 }
