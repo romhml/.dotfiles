@@ -64,13 +64,13 @@ export LC_ALL=en_US.UTF-8
 
 export EDITOR=nvim
 export LAUNCH_EDITOR=nvimux
+export BROWSER=zen-browser
 
 export GPG_TTY=$(tty)
 
 if [ $UNAME = "Darwin" ]; then
   export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 else;
-  export BROWSER=zen-browser
   alias open=xdg-open
   alias ls="ls --color"
 fi;
@@ -84,22 +84,14 @@ eval "$(fnm env --use-on-cd --log-level quiet)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun completions
-[ -s "/home/rohm/.oh-my-zsh/completions/_bun" ] && source "/home/rohm/.oh-my-zsh/completions/_bun"
-
-# rocm
-export ROCM_PATH=/opt/rocm
-export HSA_OVERRIDE_GFX_VERSION=10.3.0
-
-# zprof
+[ -s "$HOME/.oh-my-zsh/completions/_bun" ] && source "$HOME/.oh-my-zsh/completions/_bun"
 
 # pnpm
-export PNPM_HOME="/home/rohm/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-export PATH=$PATH:/home/rohm/.spicetify
+export PATH=$PATH:$HOME/.spicetify

@@ -35,18 +35,13 @@ return {
 	"numToStr/Comment.nvim",
 
 	{ "norcalli/nvim-colorizer.lua", opts = { "css", "javascript", "html", "vue" } },
-
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
-		dependencies = {
-			"saghen/blink.cmp",
-		},
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
 		opts = {
-			preview = {
-				enable = true,
-				filetypes = { "markdown", "codecompanion" },
-			},
+			file_types = { "markdown", "codecompanion" },
 		},
 	},
 

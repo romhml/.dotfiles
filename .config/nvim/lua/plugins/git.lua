@@ -58,4 +58,6 @@ return {
 			{ "<leader>gg", "<CMD> Neogit <CR>" },
 		},
 	},
+	"tpope/vim-fugitive",
+	"f-person/git-blame.nvim",
 }

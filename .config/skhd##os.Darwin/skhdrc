@@ -4,8 +4,7 @@
 cmd - t : kitty $HOME
 
 # Open browser
-cmd - w : open -a "Zen Browser"
-
+cmd - w : yabai-toggle.sh "Zen Browser" 5
 
 cmd + shift - s : yabai -m window --toggle zoom-fullscreen
 

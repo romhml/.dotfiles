@@ -27,35 +27,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.opt.updatetime = 500
 
 return {
-	-- LSP Support
 	{
-		"neovim/nvim-lspconfig",
+		"williamboman/mason-lspconfig.nvim",
+		lazy = false,
+		opts = {
+			automatic_enable = true,
+			ensure_installed = {
+				"vtsls",
+				"vue_ls",
+				"lua_ls",
+				"rust_analyzer",
+				"pyright",
+				"bashls",
+				"jsonls",
+				"yamlls",
+			},
+		},
 		dependencies = {
 			{
 				"williamboman/mason.nvim",
-				opts = {
-					ui = { border = "rounded" },
-				},
+				opts = { ui = { border = "rounded" } },
 			},
-			{
-				"williamboman/mason-lspconfig.nvim",
-				opts = {
-					automatic_enable = true,
-					ensure_installed = {
-						"ts_ls",
-						"vue_ls",
-						"lua_ls",
-						"rust_analyzer",
-						"pyright",
-						"bashls",
-						"jsonls",
-						"yamlls",
-					},
-				},
-			},
+			{ "neovim/nvim-lspconfig" },
 		},
-		lazy = false,
 	},
+
 	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
